@@ -15,6 +15,7 @@ searchOne.addEventListener('click', function(e){
     term: document.getElementById('searchTextOne').value,
     location: document.getElementById('searchTextTwo').value
   } 
+  
   var searchInput = JSON.stringify(input); 
   console.log(searchInput); 
   xhr.open('POST', 'http://localhost:1337/info/search', true);

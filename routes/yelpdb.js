@@ -17,11 +17,11 @@ var yelp = new Yelp({
 router.post('/search', function(req, res){
   var searchResponse = req.body;
   var searchInput = JSON.parse(searchResponse);
-  
   yelp.search(searchInput)
   .then(function(result) {
     console.log(result);
     res.send(result);
+    
   });
 });
 
