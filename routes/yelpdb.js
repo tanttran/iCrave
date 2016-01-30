@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var bodyParser = require('body-parser');
-var textParser = bodyParser.text();
+var textParser = bodyParser.json();
 var Yelp = require ('yelp');
 
 router.use(textParser);
@@ -16,12 +16,12 @@ var yelp = new Yelp({
 
 router.post('/search', function(req, res){
   var searchResponse = req.body;
-  var searchInput = JSON.parse(searchResponse);
-  yelp.search(searchInput)
+  // var searchInput = JSON.parse(searchResponse);
+  yelp.search(searchResponse)
   .then(function(result) {
-    console.log(result);
+    console.log('Query Search..');
     res.send(result);
-    
+
   });
 });
 
