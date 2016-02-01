@@ -15,55 +15,65 @@
 </head>
 <body ng-app="myApp">
   <!-- Navbar -->
-  <div class="navbar navbar-default" id="" style="height: 90px">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+  <div class="container">
+    <div class="navbar navbar-default" id="" style="height: 75px">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <img id="myLogo" src="image/logo.png">
+      <ul class="nav navbar-nav navbar-right" id="navbarSelect">
+        <li><a>About iCrave</a></li>
+        <li><a>Log In</a></li>
+        <li><a href="/signUp">Sign Up</a></li>
+      </ul>
     </div>
-    <img id="myLogo" src="image/logo.png">
-    <ul class="nav navbar-nav navbar-right" id="navbarSelect">
-      <li><a>About iCrave</a></li>
-      <li><a>Log In</a></li>
-      <li><a href="/signUp">Sign Up</a></li>
-    </ul>
   </div>
   <!--End of NavBar-->
-  <div ng-controller="apiController as api">
-    <div id="background-one">    <!-- Start of form -->
-     <div class="container">
-      <form class="" id="searchForm" ng-submit="api.getYelp()">
-        <div class="col-md-5">
-          <input type="text" class="" autocomplete="on" placeholder="I am craving..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
-        </div>
-        <div class="col-md-5">
-          <input type="text" class="" autocomplete="on" placeholder="Enter City..." value="" name="search" id="searchTextLocation" ng-model="api.location">
-        </div>
-        <div class="col-md-1">
-          <button id="searchButton" type="submit" value="submit"><img class="goIcon" src="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8-8345435729fdc997093a9bc1654f5569.png" data-retina-url="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8@2x-8104e4d03ad47b81f079c1f043220e75.png" alt="Search" height="22px" width="22px"></button>
-        </div>
-      </form>
-    </div>
-  </div> <!--End of Form -->
+  <div class="container">
+    <div ng-controller="apiController as api">
+      <div id="background-one">
+      </div>    
+      <div class="searchForm"> <!-- Start of form -->
+        <form class="" id="searchForm" ng-submit="api.getYelp()">
+          <div class="col-md-5">
+            <input type="text" autocomplete="on" placeholder="What are you craving..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
+          </div>
+          <div class="col-md-5">
+            <input type="text" class="" autocomplete="on" placeholder="Enter City, State" value="" name="search" id="searchTextLocation" ng-model="api.location">
+          </div>
+          <div class="col-md-1">
+            <button id="searchButton" type="submit" value="submit"><img class="goIcon" src="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8-8345435729fdc997093a9bc1654f5569.png" data-retina-url="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8@2x-8104e4d03ad47b81f079c1f043220e75.png" alt="Search" height="22px" width="22px"></button>
+          </div>
+        </form>
+      </div> 
+      <!--End of Form -->
 
-  <div class="">
-    <div class="col-sm-6" ng-repeat="business in api.response.businesses">
-      <div class="col-sm-12">
-        <h4>{{business.name}}</h4>
-        <img ng-src="{{business.rating_img_url}}">
-        <p>{{business.phone | tel}}</p>
-        <img ng-src="{{business.image_url}}">
-        <p class="">{{business.snippet_text}}</p>
-      </div>  
-    </div>
+        <div class="col-sm-4" ng-repeat="business in api.response.businesses">
+        <div class="col-sm-12 businessInfoAll">
+            <div class="col-sm-5 businessImage">
+              <img class="imageSnippet" ng-src="{{business.image_url}}">
+            </div>
+            <div class="col-sm-7 businessInfo">
+              <h4 class="businessName">{{business.name}}</h4>
+              <img ng-src="{{business.rating_img_url}}">
+              <p>{{business.phone | tel}}</p>
+            </div>
+            <div class="col-sm-12">
+              <p class="reviewSnippet">{{business.snippet_text}}</p>
+            </div>
+          </div>  
+        </div>
+      </div>
+
+    </div> <!-- End of apiController -->
+ <!-- End of Container -->
+
+  <div class="container" ng-view>
   </div>
 
-
-
-</div> <!-- End of apiController -->
-<div class="container" ng-view>
-</div>
 </body>
 </html>

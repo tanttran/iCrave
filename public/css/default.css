@@ -1,0 +1,100 @@
+.businessInfoAll {
+  border: 1px solid;
+  max-width: 350px;
+  min-height: 275px;
+  max-height: 350px;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
+.businessImage {
+  margin-bottom: 7px;
+}
+
+.businessName {
+  min-width: 150px;
+  max-width: 175px;
+  max-height: 100px;
+}
+
+.businessInfo {
+  margin-left: -20px;
+}
+
+.reviewSnippet {
+  margin-left: -20px;
+  min-height: 75px;
+  max-height: 190px;
+  
+}
+
+.imageSnippet {
+  margin-left: -30px;
+}
+
+.searchForm {
+  min-height: 60px;
+  background-color: rgba(0, 0, 0, 0.88);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  /*margin-bottom: 15px;*/
+}
+
+.searchForm input {
+    margin-top: 10px;
+    background-color: rgba(143, 243, 243, 0.82);
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 2px;
+    font-weight: bold;
+    color: rgba(229, 17, 103, 0.81);
+}
+
+#background-one {
+  background-image: url("../image/amazing-one.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -20px;
+
+  height: 300px;
+}
+
+#myLogo {
+  /*position: absolute;*/
+  height: 75px;
+  margin-left: 50px;
+}
+
+#navbarSelect {
+  margin-right: 100px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+#searchTextKeyword {
+    margin-left: 175px;
+}
+
+#searchTextLocation {
+    margin-left: 25px;
+}
+
+#searchButton {
+    margin-left: -115px;
+    margin-top: 10px;
+    background-color: rgba(71, 206, 31, 0.83);
+    height: 40px;
+    width: 50px;
+    border-radius: 5px;
+    border: 4px;
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:  black;
+    font-weight: normal;
+}
+
