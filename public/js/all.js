@@ -45,6 +45,13 @@ app.filter('tel', function(){
     };
 });
 
+app.filter('address', function(){
+  return function (address) {
+    var str = address.toString().replace(/"/g, '');
+    return str;
+  };
+});
+
 app.controller('apiController', function($http){
   vm = this;
 
