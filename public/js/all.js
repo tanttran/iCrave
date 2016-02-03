@@ -2,37 +2,37 @@ var app = angular.module('myApp', []);
 
 app.filter('tel', function(){
   return function (tel) {
-        if (!tel) { return ''; }
+    if (!tel) { return ''; }
 
-        var value = tel.toString().trim().replace(/^\+/, '');
+    var value = tel.toString().trim().replace(/^\+/, '');
 
-        if (value.match(/[^0-9]/)) {
-            return tel;
-        }
+    if (value.match(/[^0-9]/)) {
+        return tel;
+    }
 
-        var country, city, number;
+    var country, city, number;
 
-        switch (value.length) {
+    switch (value.length) {
             case 10: // +1PPP####### -> C (PPP) ###-####
-                country = 1;
-                city = value.slice(0, 3);
-                number = value.slice(3);
-                break;
+            country = 1;
+            city = value.slice(0, 3);
+            number = value.slice(3);
+            break;
 
             case 11: // +CPPP####### -> CCC (PP) ###-####
-                country = value[0];
-                city = value.slice(1, 4);
-                number = value.slice(4);
-                break;
+            country = value[0];
+            city = value.slice(1, 4);
+            number = value.slice(4);
+            break;
 
             case 12: // +CCCPP####### -> CCC (PP) ###-####
-                country = value.slice(0, 3);
-                city = value.slice(3, 5);
-                number = value.slice(5);
-                break;
+            country = value.slice(0, 3);
+            city = value.slice(3, 5);
+            number = value.slice(5);
+            break;
 
             default:
-                return tel;
+            return tel;
         }
 
         if (country == 1) {
@@ -53,7 +53,7 @@ app.filter('address', function(){
 });
 
 app.controller('apiController', function($http){
-  vm = this;
+  var vm = this;
 
   vm.getYelp = function() {
     $http({
@@ -67,25 +67,43 @@ app.controller('apiController', function($http){
 
     })
     .success(function(data){
-    vm.response = data;
+      vm.response = data;
     })
     .error(function(data){
-    console.log(data);
+      console.log(data);
     });
 
   };
 });
 
-app.controller('signUpController', function($scope, $http){
-  // vm = this;
-  $scope.signUp = function(){
+app.controller('trendsController', function($http){
+  var vm = this;
+
     $http({
-      method: "POST",
-      url: "/signUp",
-      data: {
-        username: this.username,
-        password: this.password
-      }
-    });
-  };
-});
+      method: "GET",
+      url: "/info/trends"  
+    })
+    .success(function(data) {
+      vm.trending = data;
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('error');
+    }); 
+  });
+
+// app.controller('signUpController', function($http){
+//   vm = this;
+//   vm.signUp = function(){
+//     $http({
+//       method: "POST",
+//       url: "/signUp",
+//       data: {
+//         username: vm.username,
+//         password: vm.password
+//       }
+
+//     });
+//     console.log(data.username);
+//   };
+// });

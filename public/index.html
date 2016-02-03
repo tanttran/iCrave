@@ -14,6 +14,7 @@
   
 </head>
 <body ng-app="myApp">
+
   <!-- Navbar -->
   <div class="container">
     <div class="navbar navbar-default" id="" style="height: 60px">
@@ -33,7 +34,9 @@
     </div>
   </div>
   <!--End of NavBar-->
+
   <div class="container">
+
     <div ng-controller="apiController as api">
       <div id="background-one">
       </div>    
@@ -52,45 +55,53 @@
       </div> 
       <!--End of Form -->
 
-        <div class="col-sm-4" ng-repeat="business in api.response.businesses">
+      <div class="col-sm-4" ng-repeat="business in api.response.businesses">
         <div class="col-sm-12 businessInfoAll">
-            <div class="col-sm-5 businessImage">
-              <img class="imageSnippet" ng-src="{{business.image_url}}">
-            </div>
-            <div class="col-sm-7 businessInfo">
-              <h4 class="businessName">{{business.name}}</h4>
-              <img ng-src="{{business.rating_img_url}}">
-              <p>{{business.phone | tel}}</p>
+          <div class="col-sm-5 businessImage">
+            <img class="imageSnippet" ng-src="{{business.image_url}}">
+          </div>
+          <div class="col-sm-7 businessInfo">
+            <h4 class="businessName">{{business.name}}</h4>
+            <img ng-src="{{business.rating_img_url}}">
+            <p>{{business.phone | tel}}</p>
 
-            </div>
-            <div class="col-sm-12">
+          </div>
+          <div class="col-sm-12">
             <p class="icraveAddress">{{business.location.address | address}}</p>
             <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
-              <p class="reviewSnippet">{{business.snippet_text}}</p>
-            </div>
-          </div>  
-        </div>
+            <p class="reviewSnippet">{{business.snippet_text}}</p>
+          </div>
+        </div>  
       </div>
+    </div>   <!-- End of apiController -->
 
-    </div><br> <!-- End of apiController -->
- <!-- End of Container -->
+    <!--Trend Section-->
+    <div ng-controller="trendsController as trends"><br>
+      <div>
+      <img class="center-block" src="/image/trending-one.png" id="trending" style="width: 250px">
+      <p>{{trends.trending}}</p>
+      </div>
+    </div>  <!--End Trend Section -->
 
- <div class="container">
-<div class="navbar navbar-default navbar-static-bottom" role="navigation" style="height: 60px">
-  <p class="navbar-text pull left">@ 2015 iCrave</p>
-  <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
-  <div class="navbar-text pull-right">
-    <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+    
+    
+  </div><br> <!-- End of Container -->
+
+  
+
+  <div class="container">
+    <div class="navbar navbar-default navbar-static-bottom" role="navigation" style="height: 60px">
+      <p class="navbar-text pull left">@ 2015 iCrave</p>
+      <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
+      <div class="navbar-text pull-right">
+        <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-
-  <!-- <div class="container" ng-view>
-  </div> -->
   <script src="/js/script.js"></script>
 </body>
 </html>
