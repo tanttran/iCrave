@@ -104,6 +104,10 @@
     cursor: pointer;
 }
 
+#trending {
+  width: 250px;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:  black;
     font-weight: normal;
