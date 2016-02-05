@@ -63,6 +63,17 @@
     color: rgba(0, 0, 0, 0.68);
 }
 
+.trendList {
+  transition: all linear 0.5s;
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+
+
 #background-one {
   background-image: url("../image/amazing-one.jpg");
   background-position: center center;
@@ -107,6 +118,11 @@
 #trending {
   width: 250px;
 }
+
+/*#trendsSection {
+  background-color: #FDF3E7;
+  height: 650px;
+}*/
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:  black;

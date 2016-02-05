@@ -72,7 +72,6 @@ app.controller('apiController', function($http){
     .error(function(data){
       console.log(data);
     });
-
   };
 });
 
