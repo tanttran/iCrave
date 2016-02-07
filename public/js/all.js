@@ -77,7 +77,6 @@ app.controller('apiController', function($http){
 
 app.controller('trendsController', function($http){
   var vm = this;
-
     $http({
       method: "GET",
       url: "/info/trends"  
@@ -88,21 +87,11 @@ app.controller('trendsController', function($http){
     })
     .error(function(data) {
       console.log('error');
-    }); 
+    });
+  vm.foodToggle = function(){
+
+    // $(this).siblings.toggle();
+    $(this).siblings('.foodTrendList').show();
+  };
+
   });
-
-// app.controller('signUpController', function($http){
-//   vm = this;
-//   vm.signUp = function(){
-//     $http({
-//       method: "POST",
-//       url: "/signUp",
-//       data: {
-//         username: vm.username,
-//         password: vm.password
-//       }
-
-//     });
-//     console.log(data.username);
-//   };
-// });

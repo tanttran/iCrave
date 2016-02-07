@@ -36,7 +36,7 @@
   <!--End of NavBar-->
 
   <div class="container">
-
+  
     <div ng-controller="apiController as api">
       <div id="background-one">
       </div>    
@@ -53,8 +53,8 @@
           </div>
         </form>
       </div> <br><!--End of Form -->
-
-      <div>
+      <div class="">
+      <div class="">
         <ul class="list-inline">
           <li id="foodClick" ng-click="api.foodTrend()">Foods</li>
           <li id="fashionClick" ng-click="api.fashionTrend()">Fashion</li>
@@ -79,39 +79,39 @@
           </div>
         </div>  
       </div>
-    </div>   <!-- End of apiController -->
+      <!-- End of apiController -->
 
     <!--Trend Section-->
-    <div id="trendsSection" ng-controller="trendsController as trends">
+    <div id="trendsSection" ng-controller="trendsController as trends" class="">
       <br>
       <img class="center-block" src="/image/trending-one.png" id="" style="width: 300px"><br><br>
       <div class="col-sm-8 col-sm-offset-1">
         <div class="col-sm-12" id="foodTrend">
           <ol>
-            <li class="col-sm-12" ng-repeat="trends in trends.trending">
-              <h4 ng-click="showInfo = ! showInfo">{{trends.food.name}}</h4>
-              <div class="trendList" ng-class="{ 'hidden': ! showInfo }">
-              <p>{{trends.food.overview}}</p>
+            <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
+              <h4 ng-click="trends.foodToggle()">{{foodTrend.food.name}}</h4>
+              <div class="foodTrendList">
+              <p class="foodListOverview">{{foodTrend.food.overview}}</p>
               </div>
             </li>
           </ol>
         </div>
         <div class="col-sm-12" id="fashionTrend">
           <ol>
-            <li class="col-sm-12" ng-repeat="trends in trends.trending">
-              <h4 ng-click="showInfo = ! showInfo">{{trends.fashion.name}}</h4>
-              <div class="trendList" ng-class="{ 'hidden': ! showInfo }">
-              <p>{{trends.fashion.overview}}</p>
+            <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
+              <h4 ng-click="showFashion = ! showFashion">{{fashionTrend.fashion.name}}</h4>
+              <div class="trendList" ng-class="{ 'hidden': ! showFashion }">
+              <p>{{fashionTrend.fashion.overview}}</p>
               </div>
             </li>
           </ol>
         </div>
         <div class="col-sm-12" id="fitnessTrend">
           <ol>
-            <li class="col-sm-12" ng-repeat="trends in trends.trending">
-              <h4 ng-click="showInfo = ! showInfo">{{trends.fitness.name}}</h4>
-              <div class="trendList" ng-class="{ 'hidden': ! showInfo }">
-              <p>{{trends.fitness.overview}}</p>
+            <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
+              <h4 ng-click="showFitness = ! showFitness">{{fitnessTrend.fitness.name}}</h4>
+              <div class="trendList" ng-class="{ 'hidden': ! showFitness }">
+              <p>{{fitnessTrend.fitness.overview}}</p>
               </div>
             </li>
           </ol>
@@ -121,10 +121,11 @@
         <h3 class="pull-right">PICTURE HERE</h3>
       </div>
     </div><br>  <!--End Trend Section --> 
-
+    </div>
+  </div>
   </div>
   <div class="container">
-    <div class="navbar navbar-default navbar-static-bottom" role="navigation" style="height: 60px">
+    <div class="">
       <p class="navbar-text pull left">@ 2015 iCrave</p>
       <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
       <div class="navbar-text pull-right">

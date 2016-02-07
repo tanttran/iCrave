@@ -1,8 +1,8 @@
 .businessInfoAll {
   border: 1px solid;
   max-width: 350px;
-  min-height: 275px;
-  max-height: 350px;
+  height: 275px;
+  max-height: 300px;
   margin-top: 25px;
   border-radius: 5px;
 }
@@ -64,15 +64,26 @@
 }
 
 .trendList {
+  
   transition: all linear 0.5s;
-  line-height: 20px;
   opacity: 1;
   padding: 10px;
   border: 1px solid black;
   background: white;
 }
 
+.foodTrendList {
+  display: none;
+}
 
+/*.foodListOverview {
+  display: none;
+}*/
+
+.bg-light {
+  background-color: #FDF3E7;
+
+}
 
 #background-one {
   background-image: url("../image/amazing-one.jpg");
@@ -128,4 +139,3 @@
     color:  black;
     font-weight: normal;
 }
-

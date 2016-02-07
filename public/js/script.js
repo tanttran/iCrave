@@ -7,7 +7,7 @@ $(document).ready(function(){
   var imageScroll = function(){
     var body = $('#background-one');
     var backgrounds = [
-    'url(../image/amazing-one.jpg)',
+    
     'url(../image/amazing-two.jpg)',
     'url(../image/amazing-three.jpg)',
     'url(../image/amazing-five.jpg)',
@@ -36,18 +36,27 @@ $(document).ready(function(){
   })
 
   $('#foodClick').on('click', function(){
+    console.log('food');
+    $('.businessInfoAll').hide();
+    $('#trendsSection').show();
     $('#fashionTrend').hide();
     $('#fitnessTrend').hide();
     $('#foodTrend').show();
   })
 
   $('#fashionClick').on('click', function(){
+    console.log('fashion');
+    $('.businessInfoAll').hide();
+    $('#trendsSection').show();
     $('#foodTrend').hide();
     $('#fitnessTrend').hide();
     $('#fashionTrend').show();
   })
 
   $('#fitnessClick').on('click', function(){
+    console.log('fitness');
+    $('.businessInfoAll').hide();
+    $('#trendsSection').show();
     $('#fashionTrend').hide();
     $('#foodTrend').hide();
     $('#fitnessTrend').show();
@@ -55,5 +64,3 @@ $(document).ready(function(){
 
 
 });
-
-
