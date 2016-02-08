@@ -36,7 +36,7 @@
   <!--End of NavBar-->
 
   <div class="container">
-  
+    
     <div ng-controller="apiController as api">
       <div id="background-one">
       </div>    
@@ -54,75 +54,75 @@
         </form>
       </div> <br><!--End of Form -->
       <div class="">
-      <div class="">
-        <ul class="list-inline">
-          <li id="foodClick" ng-click="api.foodTrend()">Foods</li>
-          <li id="fashionClick" ng-click="api.fashionTrend()">Fashion</li>
-          <li id="fitnessClick" ng-click="api.fitnessTrend()">Fitness</li>
-        </ul>
-      </div>
+        <div class="">
+          <ul class="list-inline">
+            <li id="foodClick" ng-click="api.foodTrend()">Foods</li>
+            <li id="fashionClick" ng-click="api.fashionTrend()">Fashion</li>
+            <li id="fitnessClick" ng-click="api.fitnessTrend()">Fitness</li>
+          </ul>
+        </div>
 
-      <div class="col-sm-4" ng-repeat="business in api.response.businesses">
-        <div class="col-sm-12 businessInfoAll">
-          <div class="col-sm-5 businessImage">
-            <img class="imageSnippet" ng-src="{{business.image_url}}">
-          </div>
-          <div class="col-sm-7 businessInfo">
-            <h4 class="businessName">{{business.name}}</h4>
-            <img ng-src="{{business.rating_img_url}}">
-            <p>{{business.phone | tel}}</p>
-          </div>
-          <div class="col-sm-12">
-            <p class="icraveAddress">{{business.location.address | address}}</p>
-            <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
-            <p class="reviewSnippet">{{business.snippet_text}}</p>
-          </div>
-        </div>  
-      </div>
-      <!-- End of apiController -->
+        <div class="col-sm-4" ng-repeat="business in api.response.businesses">
+          <div class="col-sm-12 businessInfoAll">
+            <div class="col-sm-5 businessImage">
+              <img class="imageSnippet" ng-src="{{business.image_url}}">
+            </div>
+            <div class="col-sm-7 businessInfo">
+              <h4 class="businessName">{{business.name}}</h4>
+              <img ng-src="{{business.rating_img_url}}">
+              <p>{{business.phone | tel}}</p>
+            </div>
+            <div class="col-sm-12">
+              <p class="icraveAddress">{{business.location.address | address}}</p>
+              <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
+              <p class="reviewSnippet">{{business.snippet_text}}</p>
+            </div>
+          </div>  
+        </div>
+        <!-- End of apiController -->
 
-    <!--Trend Section-->
-    <div id="trendsSection" ng-controller="trendsController as trends" class="">
-      <br>
-      <img class="center-block" src="/image/trending-one.png" id="" style="width: 300px"><br><br>
-      <div class="col-sm-8 col-sm-offset-1">
-        <div class="col-sm-12" id="foodTrend">
-          <ol>
-            <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
-              <h4 ng-click="trends.foodToggle()">{{foodTrend.food.name}}</h4>
-              <div class="foodTrendList">
-              <p class="foodListOverview">{{foodTrend.food.overview}}</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="col-sm-12" id="fashionTrend">
-          <ol>
-            <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
-              <h4 ng-click="showFashion = ! showFashion">{{fashionTrend.fashion.name}}</h4>
-              <div class="trendList" ng-class="{ 'hidden': ! showFashion }">
-              <p>{{fashionTrend.fashion.overview}}</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="col-sm-12" id="fitnessTrend">
-          <ol>
-            <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
-              <h4 ng-click="showFitness = ! showFitness">{{fitnessTrend.fitness.name}}</h4>
-              <div class="trendList" ng-class="{ 'hidden': ! showFitness }">
-              <p>{{fitnessTrend.fitness.overview}}</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <!--Trend Section-->
+        <div id="trendsSection" ng-controller="trendsController as trends" class="">
+          <br>
+          <img class="center-block" src="/image/trending-one.png" id="" style="width: 300px"><br><br>
+          <div class="col-sm-8 col-sm-offset-1">
+            <div class="col-sm-12" id="foodTrend">
+              <ol>
+                <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
+                  <h4 ng-click="trends.foodToggle()">{{foodTrend.food.name}}</h4>
+                  <div class="foodTrendList">
+                    <p class="foodListOverview">{{foodTrend.food.overview}}</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="col-sm-12" id="fashionTrend">
+              <ol>
+                <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
+                  <h4 ng-click="showFashion = ! showFashion">{{fashionTrend.fashion.name}}</h4>
+                  <div class="trendList" ng-class="{ 'hidden': ! showFashion }">
+                    <p>{{fashionTrend.fashion.overview}}</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="col-sm-12" id="fitnessTrend">
+              <ol>
+                <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
+                  <h4 ng-click="showFitness = ! showFitness">{{fitnessTrend.fitness.name}}</h4>
+                  <div class="trendList" ng-class="{ 'hidden': ! showFitness }">
+                    <p>{{fitnessTrend.fitness.overview}}</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="">
+            <h3 class="pull-right">PICTURE HERE</h3>
+          </div>
+        </div><br>  <!--End Trend Section --> 
       </div>
-      <div class="">
-        <h3 class="pull-right">PICTURE HERE</h3>
-      </div>
-    </div><br>  <!--End Trend Section --> 
     </div>
-  </div>
   </div>
   <div class="container">
     <div class="">
