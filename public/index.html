@@ -45,14 +45,14 @@
       <div class="searchForm"> <!-- Start of form -->
         <div class="col-sm-3 trendType">
           <ul class="list-inline categoryList">
-            <li id="foodClick">Foods</li>
+            <li class="active" id="foodClick">Foods</li>
             <li id="fashionClick">Fashion</li>
             <li id="fitnessClick">Fitness</li>
           </ul>
         </div>
         <form id="formSubmit" ng-submit="api.getYelp()">
           <div class="col-md-4">
-          <input type="text" autocomplete="on" placeholder="I'm looking for..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
+            <input type="text" autocomplete="on" placeholder="I'm looking for..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
           </div>
           <div class="col-md-4">
             <input type="text" class="" autocomplete="on" placeholder="Enter City, State" value="" name="search" id="searchTextLocation" ng-model="api.location">
@@ -62,7 +62,8 @@
           </div>
         </form>
       </div> <br><!--End of Form --> 
-      <div id="searchDisplay">
+      <div id="searchDisplay"><br>
+        <h3 id="searchQuery">Search Results for "{{api.keyword}}" near {{api.location}}</h4>
         <div ng-repeat="business in api.response.businesses">
           <div class="col-sm-4">
             <div class="col-sm-12 businessInfoAll">

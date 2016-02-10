@@ -13,7 +13,7 @@ ol {
   max-width: 350px;
   height: 275px;
   max-height: 300px;
-  margin-top: 35px;
+  margin-top: 20px;
   
   background: #fcfcfc;
   border: 1px solid #aaa;
@@ -204,8 +204,8 @@ ul .active {
 }
 
 #searchDisplay {
-  margin-top: -20px;
-  height: 950px;
+  margin-top: -22px;
+  height: 1000px;
   background: #fcfcfc;
   box-shadow: 0 10px 15px #D32F2F inset;
 }
@@ -235,6 +235,10 @@ ul .active {
   font-weight: bold;
   font-size: 16px;
   
+}
+
+#searchQuery {
+  margin-left: 20px;
 }
 
 
