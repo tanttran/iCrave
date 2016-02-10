@@ -88,10 +88,5 @@ app.controller('trendsController', function($http){
     .error(function(data) {
       console.log('error');
     });
-  vm.foodToggle = function(){
-    
-    // $(this).siblings.toggle();
-    $('.foodListOverview').toggle(300, "linear");
-  };
 
   });

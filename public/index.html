@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/default.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular-route.js"></script>
   <script src="/js/all.js"></script>
@@ -27,116 +29,132 @@
       </div>
       <img id="myLogo" src="image/logo.png">
       <ul class="nav navbar-nav navbar-right" id="navbarSelect">
-        <li><a>About iCrave</a></li>
-        <li><a>Log In</a></li>
-        <li><a href="/signUp">Sign Up</a></li>
+        <li class="navbarList"><a href="#">About iCrave</a></li>
+        <li class="navbarList"><a href="#">Log In</a></li>
+        <li class="navbarList"><a href="#">Sign Up</a></li>
       </ul>
     </div>
   </div>
   <!--End of NavBar-->
 
   <div class="container">
-    
-    <div ng-controller="apiController as api">
-      <div id="background-one">
-      </div>    
+
+    <div id="background-one">
+    </div>
+    <div ng-controller="apiController as api">    
       <div class="searchForm"> <!-- Start of form -->
-        <form class="" id="searchForm" ng-submit="api.getYelp()">
-          <div class="col-md-5">
-            <input type="text" autocomplete="on" placeholder="What are you craving..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
+        <div class="col-sm-3 trendType">
+          <ul class="list-inline categoryList">
+            <li id="foodClick">Foods</li>
+            <li id="fashionClick">Fashion</li>
+            <li id="fitnessClick">Fitness</li>
+          </ul>
+        </div>
+        <form id="formSubmit" ng-submit="api.getYelp()">
+          <div class="col-md-4">
+          <input type="text" autocomplete="on" placeholder="I'm looking for..." value="" name="search" id="searchTextKeyword" ng-model="api.keyword">
           </div>
-          <div class="col-md-5">
+          <div class="col-md-4">
             <input type="text" class="" autocomplete="on" placeholder="Enter City, State" value="" name="search" id="searchTextLocation" ng-model="api.location">
           </div>
           <div class="col-md-1">
             <button id="searchButton" type="submit" value="submit"><img class="goIcon" src="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8-8345435729fdc997093a9bc1654f5569.png" data-retina-url="https://ss0.4sqi.net/img/chrome/icon-go_foursquare8@2x-8104e4d03ad47b81f079c1f043220e75.png" alt="Search" height="22px" width="22px"></button>
           </div>
         </form>
-      </div> <br><!--End of Form -->
-      <div class="">
-        <div class="">
-          <ul class="list-inline">
-            <li id="foodClick" ng-click="api.foodTrend()">Foods</li>
-            <li id="fashionClick" ng-click="api.fashionTrend()">Fashion</li>
-            <li id="fitnessClick" ng-click="api.fitnessTrend()">Fitness</li>
-          </ul>
-        </div>
-
-        <div class="col-sm-4" ng-repeat="business in api.response.businesses">
-          <div class="col-sm-12 businessInfoAll">
-            <div class="col-sm-5 businessImage">
-              <img class="imageSnippet" ng-src="{{business.image_url}}">
-            </div>
-            <div class="col-sm-7 businessInfo">
-              <h4 class="businessName">{{business.name}}</h4>
-              <img ng-src="{{business.rating_img_url}}">
-              <p>{{business.phone | tel}}</p>
-            </div>
-            <div class="col-sm-12">
-              <p class="icraveAddress">{{business.location.address | address}}</p>
-              <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
-              <p class="reviewSnippet">{{business.snippet_text}}</p>
-            </div>
-          </div>  
-        </div>
-        <!-- End of apiController -->
-
-        <!--Trend Section-->
-        <div id="trendsSection" ng-controller="trendsController as trends" class="">
-          <br>
-          <img class="center-block" src="/image/trending-one.png" id="" style="width: 300px"><br><br>
-          <div class="col-sm-8 col-sm-offset-1">
-            <div class="col-sm-12" id="foodTrend">
-              <ol>
-                <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
-                  <h4 ng-click="trends.foodToggle()">{{foodTrend.food.name}}</h4>
-                  <div class="foodTrendList">
-                    <p class="foodListOverview">{{foodTrend.food.overview}}</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-            <div class="col-sm-12" id="fashionTrend">
-              <ol>
-                <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
-                  <h4 ng-click="showFashion = ! showFashion">{{fashionTrend.fashion.name}}</h4>
-                  <div class="trendList" ng-class="{ 'hidden': ! showFashion }">
-                    <p>{{fashionTrend.fashion.overview}}</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-            <div class="col-sm-12" id="fitnessTrend">
-              <ol>
-                <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
-                  <h4 ng-click="showFitness = ! showFitness">{{fitnessTrend.fitness.name}}</h4>
-                  <div class="trendList" ng-class="{ 'hidden': ! showFitness }">
-                    <p>{{fitnessTrend.fitness.overview}}</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
+      </div> <br><!--End of Form --> 
+      <div id="searchDisplay">
+        <div ng-repeat="business in api.response.businesses">
+          <div class="col-sm-4">
+            <div class="col-sm-12 businessInfoAll">
+              <div class="col-sm-5 businessImage">
+                <img class="imageSnippet" ng-src="{{business.image_url}}">
+              </div>
+              <div class="col-sm-7 businessInfo">
+                <h4 class="businessName">{{business.name}}</h4>
+                <img ng-src="{{business.rating_img_url}}">
+                <p>{{business.phone | tel}}</p>
+              </div>
+              <div class="col-sm-12">
+                <p class="icraveAddress">{{business.location.address | address}}</p>
+                <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
+                <p class="reviewSnippet">{{business.snippet_text}}</p>
+              </div>
+            </div>  
           </div>
-          <div class="">
-            <h3 class="pull-right">PICTURE HERE</h3>
+        </div>
+      </div>
+
+
+      <!-- End of apiController -->
+
+      <!--Trend Section-->
+      <div id="trendsSection" ng-controller="trendsController as trends" class="">
+        <br>
+        <div class="col-sm-12" id="trendDisplay">
+          <h2 class="text-center trendingNow" id="foodNow">Foods Trending Now</h2>
+          <h2 class="text-center trendingNow" id="fashionNow">Fashion Trending Now</h2>
+          <h2 class="text-center trendingNow" id="fitnessNow">Fitness Trending Now</h2>
+          <div class="col-sm-10 col-sm-offset-1" id="foodTrend">
+            <ol class="itemName">
+              <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFood{{$index}}" aria-expanded="false" aria-controls="collapseFood" style="margin-bottom: 25px">{{foodTrend.food.name}}</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFood{{$index}}" style="margin-left: 25px">{{foodTrend.food.overview}}</p>
+                </div>
+              </li>
+            </ol>
           </div>
-        </div><br>  <!--End Trend Section --> 
+          <div class="col-sm-10 col-sm-offset-1" id="fashionTrend">
+            <ol class="itemName">
+              <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFashion{{$index}}" aria-expanded="false" aria-controls="collapseFashion" style="margin-bottom: 25px">{{fashionTrend.fashion.name}}</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFashion{{$index}}" style="margin-left: 25px">{{fashionTrend.fashion.overview}}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-10 col-sm-offset-1" id="fitnessTrend">
+            <ol class="itemName">
+              <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFitness{{$index}}" aria-expanded="false" aria-controls="collapseFitness" style="margin-bottom: 25px">{{fitnessTrend.fitness.name}}</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFitness{{$index}}" style="margin-left: 25px">{{fitnessTrend.fitness.overview}}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
   <div class="container">
-    <div class="">
-      <p class="navbar-text pull left">@ 2015 iCrave</p>
-      <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
-      <div class="navbar-text pull-right">
-        <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
-        <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
-        <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
-        <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
-        <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+    <div class="container" id="trendingFooter">
+      <div class="col-sm-4 text-center">
+        <h4>@ copyright 2016 iCrave</h4>
+        <p>Orange County Code School</p>
+        <p>Tan T Tran</p>
+
+
+      </div>
+      <div class="col-sm-4 text-center">
+        <h4>Built using Technologies</h4>
+        <p>MongoDB</p>
+        <p>ExpressJS</p>
+        <p>AngularJS</p>
+        <p>Node.js</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <h4>Contact Us</h4>
+        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a><br>
+        <a href="#"><i class="fa fa-twitter fa-2x"></i></a><br>
+        <a href="#"><i class="fa fa-instagram fa-2x"></i></a><br>
+        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
       </div>
     </div>
-  </div>
+  </div><br><br>
+
   <script src="/js/script.js"></script>
 </body>
 </html>

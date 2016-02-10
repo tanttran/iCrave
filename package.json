@@ -1,0 +1,34 @@
+{
+  "name": "icrave",
+  "version": "1.0.0",
+  "description": "A website for people who wants to find popular food/fun around local areas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanttran/iCrave.git"
+  },
+  "keywords": [
+    "icrave"
+  ],
+  "author": "tantran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanttran/iCrave/issues"
+  },
+  "homepage": "https://github.com/tanttran/iCrave#readme",
+  "dependencies": {
+    "angular-route": "^1.4.9",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.7",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.69.0",
+    "yelp": "^1.0.1"
+  }
+}
