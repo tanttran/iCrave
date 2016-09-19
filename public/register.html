@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="css/default.css">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular-route.js"></script>
+  
+</head>
+<body ng-app="myApp">
+<h2>Register Here!</h2>
+<div ng-controller="signUpController">
+    <form ng-submit="signUp()">
+      <input type="text" autocomplete="off" name="username" ng-model="username" placeholder="username"><br>
+      <input type="password" name="password" ng-model="password" placeholder="password"><br>
+      <button type="submit" value ="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>
+

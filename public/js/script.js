@@ -63,7 +63,9 @@ $(document).ready(function(){
   //   var body = $('#background-one');
   //   var backgrounds = [
   
-  //   'url(../image/amazing-six.jpg)'
+  //   'url(../image/imageOne.jpeg)',
+  //   'url(../image/imageTwo.jpeg)',
+  //   'url(../image/imageThree.jpeg)',
   //   ];
 
   //   var current = 0;
