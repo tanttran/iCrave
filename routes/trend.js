@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var textParser = bodyParser.json();
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
+mongoose.connect('mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
 
 var connectStatus = mongoose.connection;
 connectStatus.on('error', console.error.bind(console, 'connection error:'));
