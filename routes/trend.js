@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var textParser = bodyParser.json();
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/trends');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/trends');
 
 var connectStatus = mongoose.connection;
 connectStatus.on('error', console.error.bind(console, 'connection error:'));
