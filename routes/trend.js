@@ -5,6 +5,15 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var textParser = bodyParser.json();
 var mongoose = require('mongoose');
+var MongoClient = require('mongodb').MongoClient;
+
+var db = null;
+MongoClient.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/trends", function(err, dbconn) {
+  if(!err) {
+    console.log("We are connected");
+    db = dbconn;
+  }
+});
 
 mongoose.connect('mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
 
