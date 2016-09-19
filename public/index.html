@@ -46,8 +46,9 @@
         <div class="col-sm-3 trendType">
           <ul class="list-inline categoryList">
             <li class="active" id="foodClick">Foods</li>
-            <li id="fashionClick">Fashion</li>
-            <li id="fitnessClick">Fitness</li>
+            <li id="drinkClick">Drinks</li>
+            <!-- <li id="fashionClick">Fashion</li>
+            <li id="fitnessClick">Fitness</li> -->
           </ul>
         </div>
         <form id="formSubmit" ng-submit="api.getYelp()">
@@ -64,48 +65,173 @@
       </div> <br><!--End of Form --> 
       <div id="searchDisplay"><br>
         <h3 id="searchQuery">Search Results for "{{api.keyword}}" near {{api.location}}</h4>
-        <div ng-repeat="business in api.response.businesses">
-          <div class="col-sm-4">
-            <div class="col-sm-12 businessInfoAll">
-              <div class="col-sm-5 businessImage">
-                <img class="imageSnippet" ng-src="{{business.image_url}}">
-              </div>
-              <div class="col-sm-7 businessInfo">
-                <h4 class="businessName">{{business.name}}</h4>
-                <img ng-src="{{business.rating_img_url}}">
-                <p>{{business.phone | tel}}</p>
-              </div>
-              <div class="col-sm-12">
-                <p class="icraveAddress">{{business.location.address | address}}</p>
-                <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
-                <p class="reviewSnippet">{{business.snippet_text}}</p>
-              </div>
-            </div>  
+          <div ng-repeat="business in api.response.businesses">
+            <div class="col-sm-4">
+              <div class="col-sm-12 businessInfoAll">
+                <div class="col-sm-5 businessImage">
+                  <img class="imageSnippet" ng-src="{{business.image_url}}">
+                </div>
+                <div class="col-sm-7 businessInfo">
+                  <h4 class="businessName">{{business.name}}</h4>
+                  <img ng-src="{{business.rating_img_url}}">
+                  <p>{{business.phone | tel}}</p>
+                </div>
+                <div class="col-sm-12">
+                  <p class="icraveAddress">{{business.location.address | address}}</p>
+                  <p class="icraveCityState">{{business.location.city}}, {{business.location.state_code}} {{business.location.postal_code}}</p>
+                  <p class="reviewSnippet">{{business.snippet_text}}</p>
+                </div>
+              </div>  
+            </div>
           </div>
         </div>
-      </div>
 
 
-      <!-- End of apiController -->
+        <!-- End of apiController -->
 
-      <!--Trend Section-->
-      <div id="trendsSection" ng-controller="trendsController as trends" class="">
-        <br>
-        <div class="col-sm-12" id="trendDisplay">
-          <h2 class="text-center trendingNow" id="foodNow">Foods Trending Now</h2>
-          <h2 class="text-center trendingNow" id="fashionNow">Fashion Trending Now</h2>
-          <h2 class="text-center trendingNow" id="fitnessNow">Fitness Trending Now</h2>
+        <!--Trend Section-->
+        <div id="trendsSection" ng-controller="trendsController as trends" class="">
+          <br>
+          <div class="col-sm-12" id="trendDisplay">
+            <h2 class="text-center trendingNow" id="foodNow">Foods Trending Now</h2>
+            <h2 class="text-center trendingNow" id="drinkNow">Drinks Trending Now</h2>
+          <!-- <h2 class="text-center trendingNow" id="fashionNow">Fashion Trending Now</h2>
+          <h2 class="text-center trendingNow" id="fitnessNow">Fitness Trending Now</h2> -->
+
+
           <div class="col-sm-10 col-sm-offset-1" id="foodTrend">
             <ol class="itemName">
-              <li class="col-sm-12" ng-repeat="foodTrend in trends.trending">
-                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFood{{$index}}" aria-expanded="false" aria-controls="collapseFood" style="margin-bottom: 25px">{{foodTrend.food.name}}</h4>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodOne{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Poke</h4>
                 <div class="trendList">
-                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFood{{$index}}" style="margin-left: 25px">{{foodTrend.food.overview}}</p>
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodOne{{$index}}" style="margin-left: 25px">This Hawaiian dish is already pretty popular on the food scene, and it’s not going anywhere anytime soon, according to Baum + Whiteman, a food and restaurant consulting company. Who wouldn’t want chunks of tuna soaked in a soy & sesame oil marinade and served atop seaweed-seasoned rice?</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodTwo{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Waste-based cooking</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodTwo{{$index}}" style="margin-left: 25px">70 billion pounds of food go to waste each year. Earlier this year, it was impossible to ignore the buzz about wasted, a community of chefs, farmers, and other members of the foods world who work to cook up something delicious out of unused or “un-coveted” food.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodThree{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Savory yogurt</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodThree{{$index}}" style="margin-left: 25px">…savory versions are starting to pop up all over the place. Blue Hill, for example, produces and packages yogurt flavors like beet and butternut squash, and at the Chobani store in New York City, you’ve got five savory “yogurt creations” to choose from.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodFour{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Algae</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodFour{{$index}}" style="margin-left: 25px">Algae’s been lurking around in the background for the past couple of years, poised to hit full-blown superfood status.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodFive{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Black raspberries</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodFive{{$index}}" style="margin-left: 25px">Antioxidants! That’s all you need to know, move along. Berries in general are chock-full of ‘em — probably why they tend to reach superfood status. … Science says they contain three times the amount of antioxidants than red raspberries or their doppelgangers, blackberries (good luck trying to tell those two apart).</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodSix{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Baobab</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodSix{{$index}}" style="margin-left: 25px">Fruit from the baobab tree — eight of the nine species are native to Madagascar and mainland Africa, so you can just get ahead of the economic backlash that accompanied quinoa’s sudden rise in demand — is rich in vitamin C.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodSeven{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Dried and true: dehydrated foods</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodSeven{{$index}}" style="margin-left: 25px">Unlike the kale chip craze of years past, 2016’s dehydrated trend takes it to new heights – from dehydrated broccoli, Brussels sprout and parsnip chips to sophisticated salmon, bison and chicken jerkies with grown-up flavor combinations.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodEight{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Alternative and wheat-free flours</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodEight{{$index}}" style="margin-left: 25px">People are going nuts for gluten-free flours made from legumes, ancient grains, teff, amaranth and, well, nuts. Chickpea flour is a quick riser, while other legume-based flours are showing up in bean-based pastas and other packaged goods.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodNine{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Plant-based everything</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodNine{{$index}}" style="margin-left: 25px">Plants are playing a meatier role in a surprising number of products, and not just for vegan and vegetarian alternatives.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFoodTen{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Tropical Asian</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseFoodTen{{$index}}" style="margin-left: 25px">The vibrant cuisine and distinctive flavors of Malaysia and the Philippines draw attention from adventurous palates seeking bold new tastes. Pinoy BBQ, a popular Filipino street food, is flavored with soy sauce, lemon, garlic, sugar, pepper, and banana ketchup. Rendang Curry, a Malaysian spice paste, delivers mild heat made from chilies, lemongrass, garlic, ginger, tamarind, coriander, and turmeric.</p>
+                </div>
+              </li>
+
+              </ol>
+          </div>
+
+
+
+          <div class="col-sm-10 col-sm-offset-1" id="drinkTrend">
+            <ol class="itemName">
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkOne{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Bubble Tea</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkOne{{$index}}" style="margin-left: 25px">(also known as pearl milk tea, boba milk tea, boba juice or simply boba) is a Taiwanese tea-based drink invented in Taichung in the 1980s.  Most bubble tea recipes contain a tea base mixed/shaken with fruit or milk, to which chewy tapioca balls or fruit jellies are often added. Ice-blended versions are usually mixed with fruit or syrup, resulting in a slushy consistency.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkTwo{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Tea Time</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkTwo{{$index}}" style="margin-left: 25px">As attendees look to stay healthy on the road, they’re turning their attention toward more nutritious beverages, and they’re finding the earthy flavors of kombucha and matcha. Whether enjoyed in smoothies or cocktails, or just as tea, these ingredients are likely to be a hit with guests looking for a healthier option.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkThree{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Fueled by Nitro-Coffee</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkThree{{$index}}" style="margin-left: 25px">Coffee is getting an upgrade — in cocktails, tonic water and cold, creamy blends — to provide attendees with the extra caffeine they want to get through the day in a fun, new way.  </p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkFour{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Tropical Cocktails</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkFour{{$index}}" style="margin-left: 25px">Umbrellas are back — back in drinks, that is. Get into the tiki torch spirit with not only sweet, fruity beverages, but also the festive, retro containers most guests likely associate with such cocktails.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkFive{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Cocktail Pairings</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkFive{{$index}}" style="margin-left: 25px">Craft cocktails are for more than just ingredient experimentation. Bartenders are now creating drinks to complement specific dishes for a dining experience comparable to popular wine-and-cheese events.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkSix{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Drink Garnishes</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkSix{{$index}}" style="margin-left: 25px">Umbrellas aren’t the only garnishes finding their way into drinks. Thanks in part to Instagram’s fixation with inspirational food-and-drink images, beverages are getting dressier, from fun straws to gold flakes.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkSeven{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Mad for Mocktails</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkSeven{{$index}}" style="margin-left: 25px">These creative nonalcoholic beverages are sure to be a hit among pregnant guests, nondrinkers and even kids. Draw attention to the clever mixture of ingredients with signage promoting the ingredients in each concoction.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkEight{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Meet the Foeder</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkEight{{$index}}" style="margin-left: 25px">By now, aging beer in oak barrels that once contained, say, bourbon or Chardonnay is old hat. Having mastered that tactic, which infuses the alcohol’s flavor into the beer, brewers are turning to foeders (“food-ers”), a colossal wooden vat typically used to age wine. The massive vessels are often used to create wild and sour beers, with the larger volumes allowing brewers to pull off a portion and blend with younger beers. It’s youth meets funk, Bruno Mars channeling Parliament/Funkadelic.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkNine{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Drink Your Oats</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkNine{{$index}}" style="margin-left: 25px">While oats have long lorded over breakfast, brewers have increasingly been adding the a.m. fave to beer, lending a lustrous, silky quality and mouthfeel as creamy as a whole-milk latté. Oats have traditionally starred in stouts such as Rogue Shakespeare and Firestone Walker Velvet Merlin, but now they’re rolling into highly hopped ales.</p>
+                </div>
+              </li>
+              <li class="col-sm-12">
+                <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseDrinkTen{{$index}}" aria-expanded="false" aria-controls="collapseDrink" style="margin-bottom: 25px">Pétillant Naturel and Orange Wines</h4>
+                <div class="trendList">
+                  <p class="col-sm-11 col-sm-offset-1 ListOverview collapse" id="collapseDrinkTen{{$index}}" style="margin-left: 25px">This style originated in the Loire Valley and is a naturally sparkling wine that has been around two centuries before Champagne. It happens when the wine ferments in the bottle and the CO2 can't blow off in a fermentation vessel. These are normally crown capped and can be cloudy with residual sugar.</p>
                 </div>
               </li>
             </ol>
           </div>
-          <div class="col-sm-10 col-sm-offset-1" id="fashionTrend">
+          <!-- <div class="col-sm-10 col-sm-offset-1" id="fashionTrend">
             <ol class="itemName">
               <li class="col-sm-12" ng-repeat="fashionTrend in trends.trending">
                 <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFashion{{$index}}" aria-expanded="false" aria-controls="collapseFashion" style="margin-bottom: 25px">{{fashionTrend.fashion.name}}</h4>
@@ -114,8 +240,8 @@
                 </div>
               </li>
             </ol>
-          </div>
-          <div class="col-sm-10 col-sm-offset-1" id="fitnessTrend">
+          </div> -->
+          <!-- <div class="col-sm-10 col-sm-offset-1" id="fitnessTrend">
             <ol class="itemName">
               <li class="col-sm-12" ng-repeat="fitnessTrend in trends.trending">
                 <h4 class="trendingName" role="button" data-toggle="collapse" href="#collapseFitness{{$index}}" aria-expanded="false" aria-controls="collapseFitness" style="margin-bottom: 25px">{{fitnessTrend.fitness.name}}</h4>
@@ -124,7 +250,7 @@
                 </div>
               </li>
             </ol>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

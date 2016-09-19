@@ -3,8 +3,10 @@ $(document).ready(function(){
   window.onload = function(){
     $('#fashionTrend').hide();
     $('#fitnessTrend').hide();
+    $('#drinkTrend').hide();
     $('#fashionNow').hide();
     $('#fitnessNow').hide();
+    $('#drinkNow').hide();
     $('#searchDisplay').hide();
   };
 
@@ -20,35 +22,49 @@ $(document).ready(function(){
     $('#trendsSection').show();
     $('#fashionTrend').hide();
     $('#fitnessTrend').hide();
+    $('#drinkTrend').hide();
     $('#foodTrend').show();
     $('#fashionNow').hide();
     $('#fitnessNow').hide();
+    $('#drinkNow').hide();
     $('#foodNow').show();
   });
 
-  $('#fashionClick').on('click', function(){
+  $('#drinkClick').on('click', function(){
     console.log('fashion');
     $('#searchDisplay').hide();
     $('#trendsSection').show();
     $('#foodTrend').hide();
     $('#fitnessTrend').hide();
-    $('#fashionTrend').show();
+    $('#drinkTrend').show();
     $('#foodNow').hide();
     $('#fitnessNow').hide();
-    $('#fashionNow').show();
+    $('#drinkNow').show();
   });
 
-  $('#fitnessClick').on('click', function(){
-    console.log('fitness');
-    $('#searchDisplay').hide();
-    $('#trendsSection').show();
-    $('#fashionTrend').hide();
-    $('#foodTrend').hide();
-    $('#fitnessTrend').show();
-    $('#foodNow').hide();
-    $('#fashionNow').hide();
-    $('#fitnessNow').show();
-  });
+  // $('#fashionClick').on('click', function(){
+  //   console.log('fashion');
+  //   $('#searchDisplay').hide();
+  //   $('#trendsSection').show();
+  //   $('#foodTrend').hide();
+  //   $('#fitnessTrend').hide();
+  //   $('#fashionTrend').show();
+  //   $('#foodNow').hide();
+  //   $('#fitnessNow').hide();
+  //   $('#fashionNow').show();
+  // });
+
+  // $('#fitnessClick').on('click', function(){
+  //   console.log('fitness');
+  //   $('#searchDisplay').hide();
+  //   $('#trendsSection').show();
+  //   $('#fashionTrend').hide();
+  //   $('#foodTrend').hide();
+  //   $('#fitnessTrend').show();
+  //   $('#foodNow').hide();
+  //   $('#fashionNow').hide();
+  //   $('#fitnessNow').show();
+  // });
 
   $('.itemName').on('click','li', function(){
     console.log('active');

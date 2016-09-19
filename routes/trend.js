@@ -1,53 +1,54 @@
-var express = require('express');
-var router = express.Router();
-var request = require('request');
-var path = require('path');
-var bodyParser = require('body-parser');
-var textParser = bodyParser.json();
-var mongoose = require('mongoose');
-var MongoClient = require('mongodb').MongoClient;
+// var express = require('express');
+// var router = express.Router();
+// var request = require('request');
+// var path = require('path');
+// var bodyParser = require('body-parser');
+// var textParser = bodyParser.json();
+// var mongoose = require('mongoose');
 
-var db = null;
-MongoClient.connect("mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr", function(err, dbconn) {
-  if(!err) {
-    console.log("We are connected");
-    db = dbconn;
-  }
-});
+// var MongoClient = require('mongodb').MongoClient;
 
-mongoose.connect('mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
+// var db = null;
+// MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/trends', function(err, dbconn) {
+//   if(!err) {
+//     console.log("We are connected");
+//     db = dbconn;
+//   }
+// });
 
 
-var connectStatus = mongoose.connection;
-connectStatus.on('error', console.error.bind(console, 'connection error:'));
-connectStatus.once('open', function(){
-  console.log('MONGOOSE CONNECTED');
-});
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/trends');
 
-var db = mongoose.connection;
+// var connectStatus = mongoose.connection;
+// connectStatus.on('error', console.error.bind(console, 'connection error:'));
+// connectStatus.once('open', function(){
+//   console.log('MONGOOSE CONNECTED');
+// });
 
-<!--Schema -->
-var Schema = mongoose.Schema;
+// var db = mongoose.connection;
 
-var trendsSchema = new Schema({  
-    food: {
-      name: String,
-      overview: String,
-      votes: Number
-    },
-    fashion: {
-      name: String,
-      overview: String,
-      votes: Number
-    },
-    fitness: {
-      name: String,
-      overview: String,
-      votes: Number
-    }
-});
+// <!--Schema -->
+// var Schema = mongoose.Schema;
 
-var trends = mongoose.model('trends', trendsSchema);
+// var trendsSchema = new Schema({  
+//     food: {
+//       name: String,
+//       overview: String,
+//       votes: Number
+//     },
+//     fashion: {
+//       name: String,
+//       overview: String,
+//       votes: Number
+//     },
+//     fitness: {
+//       name: String,
+//       overview: String,
+//       votes: Number
+//     }
+// });
+
+// var trends = mongoose.model('trends', trendsSchema);
 
 // var trending = new trends({
 //   food: {
@@ -70,13 +71,13 @@ var trends = mongoose.model('trends', trendsSchema);
 
 // <!--End Schema -->
 
-router.get('/trends', function(req, res){
-  trends.find({}, function(err, data){
-    if(err) console.error;
-    res.send(data);
-    // console.log(data);
-  });
+// router.get('/trends', function(req, res){
+//   trends.find({}, function(err, data){
+//     if(err) console.error;
+//     res.send(data);
+//     // console.log(data);
+//   });
   
-});
+// });
 
-module.exports = router;
+// module.exports = router;
