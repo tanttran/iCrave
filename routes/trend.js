@@ -8,14 +8,14 @@ var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 
 var db = null;
-MongoClient.connect(process.env.MONGODB_URI || "mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr", function(err, dbconn) {
+MongoClient.connect("mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr", function(err, dbconn) {
   if(!err) {
     console.log("We are connected");
     db = dbconn;
   }
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
+mongoose.connect('mongodb://heroku_zzsgwjzr:6o9645sk79daeec34sb4d30e6o@ds035766.mlab.com:35766/heroku_zzsgwjzr');
 
 
 var connectStatus = mongoose.connection;
