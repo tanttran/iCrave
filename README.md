@@ -3,5 +3,5 @@ A website for people who wants to find foods and drinks trends around local area
 
 Demo - https://tanttran-icrave.herokuapp.com/
 
-<img src="public/image/screenOne.png">
-<img src="public/image/screenTwo.png">
+<img src="public/image/icraveOne.png">
+<img src="public/image/icraveTwo.png">
